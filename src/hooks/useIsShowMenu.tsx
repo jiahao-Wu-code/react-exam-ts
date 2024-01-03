@@ -10,5 +10,5 @@ export default function useIsShowMenu() {
     if (!key) {
         return false
     }
-    return routersData[key]
+    return routersData[key].hasMenu
 }
