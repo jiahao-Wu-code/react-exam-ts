@@ -1,6 +1,9 @@
+type RouterDataType = typeof routersData
+export type RouterKeys = keyof RouterDataType
+
 export const routersData = {
-    login: { // 页面1  登录
+    login: {
         path: '/login',
         hasMenu: false,
-    },
+    }
 }
