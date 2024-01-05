@@ -2,18 +2,18 @@ import React, { useEffect, useState } from 'react';
 import type { MenuProps } from 'antd';
 import { Menu } from 'antd';
 import { adminMenus } from './config';
-import { useLocation, useNavigate } from 'react-router';
+import { useNavigate } from 'react-router';
 import { RouterKeys, routersData } from '@/router/config';
+import usePathKey from '@/hooks/usePathKey';
 
 const items: MenuProps['items'] = adminMenus;
 
 const MenuContainer: React.FC = () => {
     const [current, setCurrent] = useState('');
-    const location = useLocation();
+    const pathKey = usePathKey()
     useEffect(() => {
-        const current = location.pathname.split('/')[1] as RouterKeys;
-        if(current){
-            setCurrent(current)
+        if (pathKey) {
+            setCurrent(pathKey)
         }
     }, [])
     const navigate = useNavigate()
